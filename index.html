@@ -73,6 +73,28 @@
 			});
 
 
+			// -------------------------------
+			// Favicon
+			// -------------------------------
+			var c = document.createElement("canvas");
+			var ctx = c.getContext("2d");
+			c.width = 16;
+			c.height = 16;
+
+	        let updateFavicon = function(hex){
+	        	ctx.fillStyle = hex;
+				ctx.fillRect(0, 0, 16, 16);
+	        	var link = document.createElement('link');
+		        link.type = 'image/x-icon';
+		        link.rel = 'shortcut icon';
+		        link.href = c.toDataURL("image/x-icon");
+		        document.getElementsByTagName('head')[0].appendChild(link);
+	        }
+	        // set default
+	        updateFavicon('#000000');
+
+
+
 			$(document).ready(() => {
 				// foward click to color picker
 				$("p").click(() => $("input").click());
@@ -80,7 +102,7 @@
 				// on select color
 				$("input").change(function() {
 					let hex = $(this).val();
-
+					updateFavicon(hex);
 					$("body").css({background: hex});
 					$("#value").text(hex);
 					let rgb = hexToRgb(hex);
