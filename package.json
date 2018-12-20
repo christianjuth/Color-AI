@@ -1,0 +1,26 @@
+{
+  "name": "color-ai",
+  "version": "1.0.0",
+  "description": "![alt text](https://i.imgur.com/YAhCqWe.png)",
+  "main": "main.js",
+  "dependencies": {
+    "brain.js": "^1.6.0"
+  },
+  "devDependencies": {
+    "js-beautify": "^1.8.9"
+  },
+  "scripts": {
+    "train": "node scripts/train.js",
+    "start": "ws --spa index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christianjuth/color-ai.git"
+  },
+  "author": "Christian Juth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/christianjuth/color-ai/issues"
+  },
+  "homepage": "https://github.com/christianjuth/color-ai#readme"
+}
