@@ -3,6 +3,7 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script type="text/javascript" src="./brain.min.js"></script>
 		<link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
+		<link type="image/x-icon" rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAHklEQVQ4T2NkYGD4z0ABYBw1gGE0DBhGw4BhWIQBAE5OEAELnjVHAAAAAElFTkSuQmCC">
 
 		<title>Color AI</title>
 
@@ -34,13 +35,22 @@
 			    text-shadow: 3px 3px rgba(0, 0, 0, 0.14);
 			}
 
-			#value{
+			#value,
+			#signature{
 				position: absolute;
 			    bottom: 10px;
-			    right: 10px;
-			    opacity: 0.7;
 			    font-family: monospace;
 			    font-size: 18px;
+			}
+
+			#value{
+				right: 10px;
+				opacity: 0.6;
+			}
+
+			#signature{
+				left: 10px;
+				opacity: 0.2;
 			}
 		</style>
 
@@ -84,15 +94,8 @@
 	        let updateFavicon = function(hex){
 	        	ctx.fillStyle = hex;
 				ctx.fillRect(0, 0, 16, 16);
-	        	var link = document.createElement('link');
-		        link.type = 'image/x-icon';
-		        link.rel = 'shortcut icon';
-		        link.href = c.toDataURL("image/x-icon");
-		        document.getElementsByTagName('head')[0].appendChild(link);
+		        $('link[rel="shortcut icon"]').attr('href', c.toDataURL("image/x-icon"));
 	        }
-	        // set default
-	        updateFavicon('#000000');
-
 
 
 			$(document).ready(() => {
@@ -123,6 +126,9 @@
 	</head>
 	<body>
 		<p id="color">black</p>
+		<a href="http://christianjuth.com">
+			<p id="signature">Christian Juth</p>
+		</a>
 		<p id="value">#000000</p>
 		<input type="color" name="favcolor" value="#000">
 	</body>
