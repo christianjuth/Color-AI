@@ -45,16 +45,6 @@
 		</style>
 
 		<script type="text/javascript">
-			const network = new brain.NeuralNetwork();
-			$.getJSON("./model/colorName.json", function(json) {
-			    network.fromJSON(json);
-			});
-
-			const darkLight = new brain.NeuralNetwork();
-			$.getJSON("./model/darkLight.json", function(json) {
-			    darkLight.fromJSON(json);
-			});
-
 			function hexToRgb(hex) {
 			    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
 			    return result ? [
@@ -65,28 +55,46 @@
 			}
 
 
+			// -------------------------------
+			// DARK LIGHT NETWORK
+			// -------------------------------
+			let darkLightNet = new brain.NeuralNetwork();
+			$.getJSON("./model/darkLight.json", function(json) {
+			    darkLightNet.fromJSON(json);
+			});
+
+
+			// -------------------------------
+			// NAME COLOR NETWORK
+			// -------------------------------
+			let colorNameNet = new brain.NeuralNetwork();
+			$.getJSON("./model/colorName.json", function(json) {
+			    colorNameNet.fromJSON(json);
+			});
+
+
 			$(document).ready(() => {
-				// foward click
+				// foward click to color picker
 				$("p").click(() => $("input").click());
 
 				// on select color
 				$("input").change(function() {
-					let value = $(this).val();
+					let hex = $(this).val();
 
-					$("body").css({background: value});
-					$("#value").text(value);
-					value = hexToRgb(value);
+					$("body").css({background: hex});
+					$("#value").text(hex);
+					let rgb = hexToRgb(hex);
 
-					let isLight = darkLight.run(value);
-					if(isLight > 0.5){
-						$("p").css({color: '#fff'});
-					} else{
-						$("p").css({color: '#000'});
-					}
+					// Dark Light Network
+					let isLight = darkLightNet.run(rgb);
+					$("p").css({color: isLight > 0.5 ? '#fff' : '#000'});
 
-					let out = network.run(value);
-					colors = Object.keys(out).sort((a, b) => out[a] > out[b] ? -1 : 1);
-					$("#color").text(colors[0]);
+					// Name Color Network
+					let match = colorNameNet.run(rgb);
+					match = Object.keys(match).sort((a, b) => {
+						return match[a] > match[b] ? -1 : 1;
+					})[0];
+					$("#color").text(match);
 				});
 			});
 		</script>

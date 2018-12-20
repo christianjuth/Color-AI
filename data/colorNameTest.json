@@ -1,0 +1,44 @@
+{
+	"000000": "black",
+
+	"ffffff": "white",
+
+	"941100": "brown",
+	"945200": "brown",
+
+	"ff2600": "orange",
+	"ff9300": "orange",
+
+	"4f8f00": "green",
+	"008f00": "green",
+	"009051": "green",
+	"00f900": "green",
+	"73fa79": "green",
+
+	"009193": "blue",
+	"005493": "blue",
+	"011993": "blue",
+	"00fdff": "blue",
+	"0096ff": "blue",
+	"0433ff": "blue",
+	"73fcd6": "blue",
+	"73fdff": "blue",
+	"76d6ff": "blue",
+
+	"531b93": "purple",
+	"942193": "purple",
+	"941751": "purple",
+	"9437ff": "purple",
+	"7a81ff": "purple",
+	"d783ff": "purple",
+
+	"ff40ff": "pink",
+	"ff2f92": "pink",
+	"ff7e79": "pink",
+	"ff85ff": "pink",
+	"ff8ad8": "pink",
+
+	"fffb00": "yellow",
+	"ffd479": "yellow",
+	"fffc79": "yellow"
+}
