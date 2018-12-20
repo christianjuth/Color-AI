@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+		<script type="text/javascript" src="./brain.js"></script>
+		<script type="text/javascript" src="./name-color.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
+
+		<title>Color AI</title>
+	</head>
+	<style type="text/css">
+		body{
+			background: #000;
+		}
+
+		input{
+			display: none;
+		}
+
+		p{
+			position: absolute;
+			margin: 0;
+			font-family: arial;
+		    color: #fff;
+		}
+
+		#color{
+		    height: 100%;
+		    width: 100%;
+		    top: 0;
+		    left: 0;
+		    font-size: 10vw;
+		    text-align: center;
+		    line-height: 96vh;
+		    font-family: Staatliches;
+		    text-shadow: 3px 3px rgba(0, 0, 0, 0.14);
+		}
+
+		#value{
+			position: absolute;
+		    bottom: 10px;
+		    right: 10px;
+		    opacity: 0.7;
+		    font-family: monospace;
+		    font-size: 18px;
+		}
+	</style>
+	<body>
+		<p id="color">black</p>
+		<p id="value">#000000</p>
+		<input type="color" name="favcolor" value="#000">
+	</body>
+</html>
