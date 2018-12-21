@@ -28,7 +28,7 @@ Object.keys(testData).forEach((hex) => {
 		console.log(`${hex} == ${testData[hex]}`.green);
 	} else{
 		exit = 1;
-		console.log(`${hex} == ${testData[hex]}`.red);
+		console.log(`${hex} == ${testData[hex]} (${match})`.red);
 	}
 });
 console.log('');
